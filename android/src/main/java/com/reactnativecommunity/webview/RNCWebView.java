@@ -477,6 +477,7 @@ public class RNCWebView extends WebView implements LifecycleEventListener {
     public void downloadFile(String json) {
       //parse json
       try {
+        Toast.makeText(mWebView.getContext(), "Baixando arquivo", Toast.LENGTH_SHORT).show();
         JSONObject jsonObject = null;
         jsonObject = new JSONObject(json);
         String url = jsonObject.getString("data");
@@ -506,7 +507,7 @@ public class RNCWebView extends WebView implements LifecycleEventListener {
           os.write(decodedBytes);
           os.close();
 
-          Toast.makeText(mWebView.getContext(), downloadingMessage, Toast.LENGTH_LONG).show();
+          Toast.makeText(mWebView.getContext(), "Arquivo salvo em Downloads", Toast.LENGTH_LONG).show();
 
 
 

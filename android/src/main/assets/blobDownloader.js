@@ -18,7 +18,6 @@ window.reactNativeDownloadBlobUrl = function reactNativeDownloadBlobUrl(url) {
 	function saveBlob(blob, filename) {
     var reader = new FileReader();
     reader.readAsDataURL(blob);
-    let fileName = "";
 
 
     reader.onloadend = function() {
@@ -29,7 +28,7 @@ window.reactNativeDownloadBlobUrl = function reactNativeDownloadBlobUrl(url) {
     ext = "bin";
     }
 
-    fileName = `${filename || "download"}.${ext}`;
+    const fileName = `${filename || new Date().getTime()}.${ext}`;
 
     sendMessage({
         event: 'file',
